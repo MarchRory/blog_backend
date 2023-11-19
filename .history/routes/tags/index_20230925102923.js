@@ -7,9 +7,9 @@ const { pack } = require('../../utils/index')
 router.get('/taglist', async (req, res) => {
   const { keywords, pageNum, pageSize } = req.query
   const userId = req.headers['is-front'] ? null : req.auth.userId
-  const resultModel = await search(userId, keywords, pageNum, pageSize)
-  const { code, result } = resultModel
-  res.status(code).send(pack(code, { ...result }))
+  const result = await search(userId, keywords, pageNum, pageSize)
+  const { code, list, total } = result
+  res.status(code).send(pack(code, { list, total }))
 });
 
 router.post('/tag', async (req, res) => {

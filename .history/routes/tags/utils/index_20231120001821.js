@@ -26,6 +26,7 @@ const search = async (userId, keywords, pageNum, pageSize) => {
     }catch(err){
         code = http_code.error
     }
+    console.log('tag list: ', list)
     return {
         code: code,
         result: {
