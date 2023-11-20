@@ -25,6 +25,7 @@ const cos = new COS({
 /* GET home page. */
 // COS头像存储
 uploadRouter.post('/avatar',  upload.single('avatar'),  async (req, res) => {
+    console.log(req.file)
     let avatarPath = `uploads/${req.file.filename}`.replaceAll('\\', '/')
     let splitArr = avatarPath.split('.')
     let type = splitArr[splitArr.length-1]

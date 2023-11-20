@@ -5,7 +5,6 @@ const { pack } = require('../../utils');
 const http_code = require('../../utils/code');
 const COS = require("cos-nodejs-sdk-v5")
 const fs = require("fs")
-const { env } = require('../../setting/env')
 const avatar_Bucket = {
     Bucket: 'blog-avatar-1321070494',
     Region: 'ap-guangzhou'
@@ -15,8 +14,8 @@ const note_Bucket = {
     Region: 'ap-guangzhou'
 }
 const cos = new COS({
-    SecretId: env.APP_COS_SECRET_ID,
-    SecretKey: env.APP_COS_SECRET_KEY,
+    SecretId: 'AKIDa2GH3buyoPltnSJ4cv0qUv74nIappcAU',
+    SecretKey: '82h8NQGsXxBBwVqwoSs417ybz84npsvq',
     Timeout: 5 * 1000,
 })
 //     Proxy: `http://10.0.8.16:8888`,
@@ -25,6 +24,7 @@ const cos = new COS({
 /* GET home page. */
 // COS头像存储
 uploadRouter.post('/avatar',  upload.single('avatar'),  async (req, res) => {
+    console.log(req.file)
     let avatarPath = `uploads/${req.file.filename}`.replaceAll('\\', '/')
     let splitArr = avatarPath.split('.')
     let type = splitArr[splitArr.length-1]

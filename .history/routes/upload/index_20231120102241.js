@@ -5,7 +5,7 @@ const { pack } = require('../../utils');
 const http_code = require('../../utils/code');
 const COS = require("cos-nodejs-sdk-v5")
 const fs = require("fs")
-const { env } = require('../../setting/env')
+ const { env } = require('../../setting/env')
 const avatar_Bucket = {
     Bucket: 'blog-avatar-1321070494',
     Region: 'ap-guangzhou'
@@ -15,8 +15,8 @@ const note_Bucket = {
     Region: 'ap-guangzhou'
 }
 const cos = new COS({
-    SecretId: env.APP_COS_SECRET_ID,
-    SecretKey: env.APP_COS_SECRET_KEY,
+    SecretId: process.env.APP_COS_SECRET_ID,
+    SecretKey: process.env.APP_COS_SECRET_KEY,
     Timeout: 5 * 1000,
 })
 //     Proxy: `http://10.0.8.16:8888`,

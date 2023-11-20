@@ -16,7 +16,7 @@ const note_Bucket = {
 }
 const cos = new COS({
     SecretId: env.APP_COS_SECRET_ID,
-    SecretKey: env.APP_COS_SECRET_KEY,
+    SecretKey: process.env.APP_COS_SECRET_KEY,
     Timeout: 5 * 1000,
 })
 //     Proxy: `http://10.0.8.16:8888`,

@@ -3,7 +3,6 @@
 /**
  * Module dependencies.
  */
-const { env } = require('../setting/env')
 
 var app = require('../app');
 var debug = require('debug')('blog-backend:server');
@@ -13,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(env.PORT || '8080');
+var port = normalizePort(process.env.PORT || '8080');
 app.set('port', port);
 
 /**
@@ -84,6 +83,7 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
+  console.log(process.env)
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;

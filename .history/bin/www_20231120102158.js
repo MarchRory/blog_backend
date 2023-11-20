@@ -84,6 +84,7 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
+  console.log('环境变量: ' , env.APP_COS_SECRET_ID)
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
